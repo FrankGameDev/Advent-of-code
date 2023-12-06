@@ -5,8 +5,8 @@
 #include <fstream>
 #include <regex>
 #include <unordered_map>
-#include "Test.h"
-#include "Utility.h"
+#include "../Utils/Test.h"
+#include "../Utils/Utility.h"
 
 
 using namespace std;

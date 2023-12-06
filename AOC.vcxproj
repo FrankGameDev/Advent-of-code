@@ -127,19 +127,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Day1.cpp" />
-    <ClCompile Include="Day2.cpp" />
+    <ClCompile Include="Day1\Day1.cpp" />
+    <ClCompile Include="Day2\Day2.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Day1.txt" />
-    <Text Include="Day2.txt" />
+    <Text Include="Day1\Day1.txt">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </Text>
+    <Text Include="Day2\Day2.txt">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Day2.h" />
+    <ClInclude Include="Day2\Day2.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="Test.h" />
-    <ClInclude Include="ToExececute.h" />
-    <ClInclude Include="Utility.h" />
+    <ClInclude Include="Utils\Test.h" />
+    <ClInclude Include="Utils\Utility.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -7,11 +7,8 @@
 #include <fstream>
 #include <regex>
 #include <unordered_map>
-#include "Test.h"
 
-#define GREEN   "\033[32m"
-#define RED     "\033[31m"
-#define RESET   "\033[0m"
+#include "../Utils/Test.h"
 
 
 class AdventOfCodeDay1 {
