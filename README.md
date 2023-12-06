@@ -16,7 +16,7 @@ Il repository è organizzato in modo da separare le soluzioni per ogni anno e gi
   ...
 ```
 
-##Come Partecipare all'Advent of Code
-Se non sei ancora partecipante all'Advent of Code, ti consiglio di visitare il sito ufficiale Advent of Code per ulteriori informazioni su come partecipare e sfidarti con i problemi giornalieri.
+## Come Partecipare all'Advent of Code
+Se non hai ancora partecipato all'Advent of Code, ti consiglio di visitare il sito ufficiale [Advent of Code](https://adventofcode.com/) per ulteriori informazioni su come partecipare e sfidarti con i problemi giornalieri.
 
 Buon coding! 🚀
