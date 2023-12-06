@@ -1,3 +1,2 @@
-﻿  AOC-Day1.cpp
-C:\Users\Francesco\source\repos\AOC\AOC-Day1.cpp(153,14): warning C4267: 'inizializzazione': conversione da 'size_t' a 'int'. Possibile perdita di dati.
+﻿  Day2.cpp
   AOC.vcxproj -> C:\Users\Francesco\source\repos\AOC\x64\Debug\AOC.exe
