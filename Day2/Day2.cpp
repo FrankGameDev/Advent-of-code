@@ -18,20 +18,24 @@ class CubeBag {
 public:
 	CubeBag() : red(0), blue(0), green(0) {}
 
-	void PutRed(int n) {
+	void putRed(int n) {
 		red = max(red, n);
 	}
 
-	void PutGreen(int n) {
+	void putGreen(int n) {
 		green = max(green, n);
 	}
 
-	void PutBlue(int n) {
+	void putBlue(int n) {
 		blue = max(blue, n);
 	}
 
-	bool CheckPossibleGame() const {
+	bool checkPossibleGame() const {
 		return red <= maxRedCubes && blue <= maxBlueCubes && green <= maxGreenCubes;
+	}
+
+	int getPowerOfCubes() const {
+		return red * blue * green;
 	}
 };
 
@@ -67,18 +71,25 @@ private:
 		trim(cube);
 		vector<string> splitted = split(cube, ' ');
 		if (splitted[1] == "blue")
-			color.PutBlue(stoi(splitted[0]));
+			color.putBlue(stoi(splitted[0]));
 		if (splitted[1] == "green")
-			color.PutGreen(stoi(splitted[0]));
+			color.putGreen(stoi(splitted[0]));
 		if (splitted[1] == "red")
-			color.PutRed(stoi(splitted[0]));
+			color.putRed(stoi(splitted[0]));
 	}
 
 
 	int getSumIdWithRequestedCube(unordered_map<int, CubeBag>& cubePerGame, int& sum) {
 		for (pair<int, CubeBag> x : cubePerGame) {
-			if (x.second.CheckPossibleGame())
+			if (x.second.checkPossibleGame())
 				sum += x.first;
+		}
+		return sum;
+	}
+
+	int getPowerAndSumOfCubes(unordered_map<int, CubeBag> cubePerGame, int& sum) {
+		for (pair<int, CubeBag> x : cubePerGame) {
+			sum += x.second.getPowerOfCubes();
 		}
 		return sum;
 	}
@@ -100,8 +111,25 @@ public:
 		return sum;
 	}
 
+	int Part2() {
+		std::ifstream file("Day2.txt");
+		std::string line;
+		int sum = 0;
+		unordered_map<int, CubeBag> cubePerGame;
+		if (file.is_open()) {
+			while (getline(file, line)) {
+				pair<int, CubeBag> result = countCubesPerGame(line);
+				cubePerGame.insert_or_assign(result.first, result.second);
+			}
+		}
+		getPowerAndSumOfCubes(cubePerGame, sum);
+
+		return sum;
+	}
+
 };
 
 int main() {
 	cout << Day2().Part1() << endl;
+	cout << Day2().Part2() << endl;
 }
