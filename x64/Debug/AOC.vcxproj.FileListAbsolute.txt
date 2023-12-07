@@ -1,1 +1,2 @@
 C:\Users\Francesco\source\repos\AOC\x64\Debug\AOC.exe
+C:\Users\Francesco\My private projects\C++ project\repos\AOC\x64\Debug\AOC.exe

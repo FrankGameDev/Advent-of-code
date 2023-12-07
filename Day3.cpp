@@ -1,4 +1,3 @@
-#include "Utils/Utility.h"
 #include <iostream>
 #include <string.h>
 #include <string>
@@ -6,13 +5,14 @@
 #include <regex>
 #include <numeric>
 #include <unordered_map>
+#include "Utils/Utility.h"
 
 using namespace std;
 
 class Day3 {
 
 private:
-	vector<int> findValidNumber(vector<string>& lines) {
+	vector<int> part1Solution(vector<string>& lines) {
 		vector<int> numFound;
 		unordered_map<int, vector<int>> visited;
 		for (int i = 0; i < lines.size(); i++) { // Rows
@@ -28,8 +28,38 @@ private:
 		return numFound;
 	}
 
+
+	vector<int> part2Solution(vector<string>& lines) {
+		vector<int> numFound;
+		unordered_map<int, vector<int>> visited;
+		for (int i = 0; i < lines.size(); i++) { // Rows
+			for (int j = 0; j < lines[i].size(); j++) { //Columns
+				if (!checkIfGear(lines[i][j]))
+					continue;
+
+				vector<int> result = findNumbersFromSymbol(lines, i, j, visited);
+				if (result.size() != 2)
+					continue;
+
+				int power = result[0] * result[1];
+				numFound.emplace_back(power);
+			}
+		}
+
+		return numFound;
+	}
+
+	
+
+
+	// Utils
+
 	bool checkIfSymbol(char& c) {
 		return c != '.' && !isdigit(c);
+	}
+
+	bool checkIfGear(char& c) {
+		return c == '*';
 	}
 
 	vector<int> findNumbersFromSymbol(const vector<string>& lines, int rowIndex, int columnIndex, unordered_map<int, vector<int>>& visited) {
@@ -64,11 +94,11 @@ private:
 				find(entry.second.begin(), entry.second.end(), col) != entry.second.end();
 			}) != visited.end();
 
-		// Check if the row and the column has been visited already
-		if (indexVisited)
-			return "";
+			// Check if the row and the column has been visited already
+			if (indexVisited)
+				return "";
 
-		return parseNumberFromStartingPoint(line, col, indexes, visited, row);
+			return parseNumberFromStartingPoint(line, col, indexes, visited, row);
 	}
 
 	string parseNumberFromStartingPoint(const string line, int col, unordered_map<int, string>& indexes, unordered_map<int, vector<int>>& visited, int visitedKey) {
@@ -92,20 +122,19 @@ private:
 
 
 public:
-	int day3() {
-		ifstream file("Day3.txt");
-		string line;
-		int sum = 0;
-		vector<string> lines;
-		if (file.is_open())
-			while (getline(file, line)) {
-				lines.push_back(line);
-			}
-		vector<int> numbers = findValidNumber(lines);
+	int part1() {
+		vector<string> lines = readFile("Day3.txt");
+		vector<int> numbers = part1Solution(lines);
+		return reduce(numbers.begin(), numbers.end());
+	}
+
+	int part2() {
+		vector<string> lines = readFile("Day3.txt");
+		vector<int> numbers = part2Solution(lines);
 		return reduce(numbers.begin(), numbers.end());
 	}
 };
 
 int main() {
-	cout << Day3().day3() << endl;
+	cout << Day3().part1() << endl <<Day3().part2() << endl;
 }

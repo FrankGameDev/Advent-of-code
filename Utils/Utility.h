@@ -47,3 +47,15 @@ static vector<string> split(string& s, char separator) {
 	return result;
 
 }
+
+static vector<string> readFile(string f) {
+	ifstream file(f);
+	string line;
+	int sum = 0;
+	vector<string> lines;
+	if (file.is_open())
+		while (getline(file, line)) {
+			lines.push_back(line);
+		}
+	return lines;
+}
