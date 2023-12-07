@@ -104,6 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -129,6 +130,7 @@
   <ItemGroup>
     <ClCompile Include="Day1\Day1.cpp" />
     <ClCompile Include="Day2\Day2.cpp" />
+    <ClCompile Include="Day3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Day1\Day1.txt">
@@ -137,9 +139,11 @@
     <Text Include="Day2\Day2.txt">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </Text>
+    <Text Include="Day3.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Day2\Day2.h" />
+    <ClInclude Include="Day3.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Utils\Test.h" />
     <ClInclude Include="Utils\Utility.h" />

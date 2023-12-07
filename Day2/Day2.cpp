@@ -128,8 +128,3 @@ public:
 	}
 
 };
-
-int main() {
-	cout << Day2().Part1() << endl;
-	cout << Day2().Part2() << endl;
-}
