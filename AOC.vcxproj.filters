@@ -24,11 +24,17 @@
     <ClCompile Include="Day3\Day3.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
+    <ClCompile Include="Day4\Day4.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Day2\Day2.txt" />
     <Text Include="Day1\Day1.txt" />
     <Text Include="Day3\Day3.txt" />
+    <Text Include="Day4.txt">
+      <Filter>File di risorse</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utils\Test.h">
@@ -44,6 +50,9 @@
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="Day3\Day3.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="Day4\Day4.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>

@@ -5,7 +5,7 @@
 #include <regex>
 #include <numeric>
 #include <unordered_map>
-#include "Utils/Utility.h"
+#include "../Utils/Utility.h"
 
 using namespace std;
 
@@ -134,7 +134,3 @@ public:
 		return reduce(numbers.begin(), numbers.end());
 	}
 };
-
-int main() {
-	cout << Day3().part1() << endl <<Day3().part2() << endl;
-}
